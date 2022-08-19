@@ -1,5 +1,15 @@
-var nome = document.querySelector("#exampleInputName");
+var name = document.querySelector("#exampleInputName");
 
-var genM = document.querySelector("#exampleInputGenderM");
+var gender = document.querySelectorAll("#form-user-create [name = gender]:checked");
 
-var genF = document.querySelector("#exampleInputGenderF");
+var birth = document.querySelector("#exampleInputBirth");
+
+var country = document.querySelector("#exampleInputCountry");
+
+var email = document.querySelector("#exampleInputEmail");
+
+var password = document.querySelector("#exampleInputPassword");
+
+var file = document.querySelector("#exampleInputFile");
+
+var admin = document.querySelector("#exampleInputAdmin");
