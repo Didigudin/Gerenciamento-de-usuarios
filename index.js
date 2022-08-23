@@ -4,9 +4,9 @@ var user =  {};
 
 function addLine(userData)  {
 
-    var tr = document.createElement("tr");
+    console.log(userData);
 
-    tr.innerHTML =  `
+    document.getElementById("table-users").innerHTML =  `
     <tr>
         <td><img src="dist/img/user1-128x128.jpg" alt="User Image" class="img-circle img-sm"></td>
         <td>${userData.name}</td>
@@ -20,8 +20,6 @@ function addLine(userData)  {
     </tr>
     
     `;
-
-    document.getElementById("table-users").appendChild(tr);
 
 }
 
@@ -48,5 +46,12 @@ document.getElementById("form-user-create").addEventListener("submit", function(
     
     });
 
-    addLine(user);
+    var userObject = new User(
+
+        user.name, user.gender, user.birth, user.country, user.email, user.password, user.photo, user.admin
+        
+        );
+
+    addLine(userObject);
+
 });
