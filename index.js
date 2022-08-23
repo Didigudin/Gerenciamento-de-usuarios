@@ -1,15 +1,52 @@
-var name = document.querySelector("#exampleInputName");
+var fields = document.querySelectorAll("#form-user-create [name]");
 
-var gender = document.querySelectorAll("#form-user-create [name = gender]:checked");
+var user =  {};
 
-var birth = document.querySelector("#exampleInputBirth");
+function addLine(userData)  {
 
-var country = document.querySelector("#exampleInputCountry");
+    var tr = document.createElement("tr");
 
-var email = document.querySelector("#exampleInputEmail");
+    tr.innerHTML =  `
+    <tr>
+        <td><img src="dist/img/user1-128x128.jpg" alt="User Image" class="img-circle img-sm"></td>
+        <td>${userData.name}</td>
+        <td>${userData.email}</td>
+        <td>${userData.admin}</td>
+        <td>${userData.birth}</td>
+        <td>
+            <button type="button" class="btn btn-primary btn-xs btn-flat">Editar</button>
+            <button type="button" class="btn btn-danger btn-xs btn-flat">Excluir</button>
+            </td>
+    </tr>
+    
+    `;
 
-var password = document.querySelector("#exampleInputPassword");
+    document.getElementById("table-users").appendChild(tr);
 
-var file = document.querySelector("#exampleInputFile");
+}
 
-var admin = document.querySelector("#exampleInputAdmin");
+document.getElementById("form-user-create").addEventListener("submit", function(event)   {
+
+    event.preventDefault();
+
+    fields.forEach(function(field, index)  {
+
+        if (field.name == "gender") {
+    
+            if (field.checked)  {
+    
+                user[field.name] = field.value;
+            }
+    
+        }
+    
+        else    {
+    
+            user[field.name] = field.value;
+    
+        }
+    
+    });
+
+    addLine(user);
+});
