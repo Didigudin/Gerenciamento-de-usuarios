@@ -1,7 +1,5 @@
-class User  {
-
-    constructor(name, gender, birth, country, email, password, photo, admin)   {
-
+class User {
+    constructor (name, gender, birth, country, email, password, photo, admin){
         this.name = name;
         this.gender = gender;
         this.birth = birth;
@@ -11,5 +9,4 @@ class User  {
         this.photo = photo;
         this.admin = admin;
     }
-
 }
