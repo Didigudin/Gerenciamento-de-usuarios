@@ -130,16 +130,8 @@ class UserController  {
         );
     }
 
-    getUsersStorage()  {
-        let users = [];
-        if (localStorage.getItem("users"))  {
-            users = JSON.parse(localStorage.getItem("users"));
-        }
-        return users;
-    }
-
     selectAll()  {
-        let users = this.getUsersStorage();
+        let users = User.getUsersStorage();
         users.forEach(dataUser =>  {
             let user = new User();
             user.loadFromJSON(dataUser);
@@ -176,6 +168,9 @@ class UserController  {
     addEventsTr(tr)  {
         tr.querySelector(".btn-delete").addEventListener("click", e =>  {
             if (confirm("Confirmar a exclusão?"))  {
+                let user = new User();
+                user.loadFromJSON(JSON.parse(tr.dataset.user));
+                user.remove();
                 tr.remove();
                 this.updateCount();
             }
